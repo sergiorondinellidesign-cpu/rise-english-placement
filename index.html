@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teste de Nivelamento de Inglês | Rise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2C4C;
+    --terracotta:#E0432A;
+    --yellow:#FFEA00;
+    --cream:#FDFBF3;
+    --graphite:#1A1A1A;
+    --font-head:'Poppins', sans-serif;
+    --font-body:'Nunito', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--graphite);
+    font-family:var(--font-body);
+    line-height:1.6;
+  }
+  a{color:inherit;}
+
+  /* ---------- topo ---------- */
+  .topbar{
+    padding:20px 24px;
+    border-bottom:1px solid rgba(26,26,26,0.08);
+  }
+  .wordmark{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:1.3rem;
+    color:var(--navy);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--navy);
+    color:var(--cream);
+    padding:72px 24px 64px;
+  }
+  .hero-inner{
+    max-width:640px;
+    margin:0 auto;
+  }
+  .hero h1{
+    font-family:var(--font-head);
+    font-size:2.1rem;
+    line-height:1.25;
+    margin:0 0 16px;
+  }
+  .hero p{
+    font-size:1.05rem;
+    color:rgba(253,251,243,0.85);
+    max-width:52ch;
+    margin:0 0 32px;
+  }
+  .btn{
+    display:inline-block;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:1rem;
+    padding:14px 30px;
+    background:var(--terracotta);
+    color:var(--cream);
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+  }
+  .btn:hover{background:#c73a24;}
+  .btn:disabled{opacity:0.4;cursor:not-allowed;}
+
+  /* ---------- sobre a rise ---------- */
+  .about{
+    max-width:640px;
+    margin:0 auto;
+    padding:56px 24px;
+  }
+  .about h2{
+    font-family:var(--font-head);
+    font-size:1.5rem;
+    color:var(--navy);
+    margin:0 0 20px;
+  }
+  .about p{
+    margin:0 0 16px;
+    font-size:1rem;
+  }
+  .pillars{
+    margin-top:28px;
+    border-top:1px solid rgba(26,26,26,0.12);
+  }
+  .pillar{
+    display:flex;
+    gap:16px;
+    padding:18px 0;
+    border-bottom:1px solid rgba(26,26,26,0.12);
+  }
+  .pillar strong{
+    font-family:var(--font-head);
+    color:var(--navy);
+    min-width:130px;
+    flex-shrink:0;
+    font-size:0.95rem;
+  }
+  .pillar span{font-size:0.95rem;}
+
+  /* ---------- secao do teste ---------- */
+  .test-section{
+    max-width:640px;
+    margin:0 auto;
+    padding:0 24px 120px;
+  }
+  .test-intro{
+    padding:32px 0 8px;
+  }
+  .test-intro h2{
+    font-family:var(--font-head);
+    font-size:1.4rem;
+    color:var(--navy);
+    margin:0 0 12px;
+  }
+  .callout{
+    border-left:3px solid var(--terracotta);
+    background:rgba(224,67,42,0.06);
+    padding:14px 18px;
+    margin:20px 0 36px;
+    font-size:0.95rem;
+  }
+
+  .field{
+    margin-bottom:18px;
+  }
+  .field label{
+    display:block;
+    font-size:0.9rem;
+    font-weight:700;
+    margin-bottom:6px;
+    color:var(--navy);
+  }
+  .field input{
+    width:100%;
+    font-family:var(--font-body);
+    font-size:1rem;
+    padding:11px 12px;
+    border:1px solid rgba(26,26,26,0.25);
+    background:#fff;
+  }
+
+  .level{margin:40px 0;}
+  .level-title{
+    font-family:var(--font-head);
+    font-size:1.15rem;
+    color:var(--navy);
+    border-bottom:2px solid var(--navy);
+    padding-bottom:8px;
+    margin-bottom:20px;
+  }
+  .question{margin-bottom:20px;}
+  .question p{margin:0 0 10px;font-size:1rem;}
+  .options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 14px;
+  }
+  label.opt{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 10px;
+    border:1px solid rgba(26,26,26,0.2);
+    cursor:pointer;
+    font-size:0.94rem;
+  }
+  label.opt.checked{
+    border-color:var(--terracotta);
+    background:rgba(224,67,42,0.05);
+  }
+  input[type=radio]{accent-color:var(--terracotta);}
+
+  .submit-bar{
+    position:fixed;
+    bottom:0;left:0;right:0;
+    background:var(--cream);
+    border-top:2px solid var(--navy);
+    padding:14px 24px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+  }
+  .submit-bar span{
+    font-size:0.85rem;
+    color:var(--navy);
+    min-width:120px;
+  }
+
+  #test-form, #quiz-wrap{display:none;}
+  #confirmation{
+    display:none;
+    text-align:center;
+    padding:60px 24px;
+  }
+  #confirmation h2{
+    font-family:var(--font-head);
+    color:var(--navy);
+    font-size:1.4rem;
+  }
+  .hidden{display:none !important;}
+</style>
+</head>
+<body>
+
+<div class="topbar"><span class="wordmark">rise</span></div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Descubra seu nível de inglês antes de começar as aulas.</h1>
+    <p>A Rise agora também ensina inglês. Este teste leva cerca de 15 minutos e mostra por onde você deve começar.</p>
+    <button class="btn" id="startBtn">Começar teste</button>
+  </div>
+</div>
+
+<div class="about">
+  <h2>O que é a Rise</h2>
+  <p>A Rise é uma mentoria para jovens brasileiros que querem estudar, morar ou trabalhar fora do país. O trabalho envolve acompanhar de perto processos de admissão internacional, organizar informação sobre bolsas e universidades, e ajudar cada aluno a construir um plano realista para sair do Brasil.</p>
+  <p>As aulas de inglês nasceram da mesma ideia: dar direção prática, com um caminho claro entre o nível de hoje e o inglês necessário para estudar fora.</p>
+  <div class="pillars">
+    <div class="pillar"><strong>Admissões</strong><span>Acompanhamento em processos de universidades e bolsas internacionais.</span></div>
+    <div class="pillar"><strong>Newsletter rise</strong><span>Conteúdo semanal sobre oportunidades internacionais e educação financeira.</span></div>
+    <div class="pillar"><strong>Mundo Afora</strong><span>Mentoria para quem já decidiu estudar fora e precisa de um plano.</span></div>
+  </div>
+</div>
+
+<div class="test-section">
+  <div class="test-intro">
+    <h2>Teste de nivelamento</h2>
+    <p>Marque a alternativa que primeiro vier à cabeça, sem usar tradutor ou dicionário. Isso ajuda a medir seu nível real.</p>
+  </div>
+
+  <div class="callout">
+    O resultado não aparece na tela. Você recebe seu nível por email em alguns minutos, junto com os próximos passos.
+  </div>
+
+  <form id="test-form">
+    <div class="field">
+      <label for="name">Nome</label>
+      <input type="text" id="name" required>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+    </div>
+    <button type="button" class="btn" id="toQuizBtn">Ir para as perguntas</button>
+  </form>
+
+  <div id="quiz-wrap">
+    <form id="quiz"></form>
+  </div>
+</div>
+
+<div id="confirmation">
+  <h2>Respostas recebidas.</h2>
+  <p>Em alguns minutos você recebe seu nível por email, junto com os próximos passos.</p>
+</div>
+
+<div class="submit-bar hidden" id="submitBar">
+  <span id="progress">0 de 30 respondidas</span>
+  <button class="btn" id="submitBtn" disabled>Enviar respostas</button>
+</div>
+
+<script>
+// Configure aqui a URL do backend depois do deploy (ex.: Railway)
+const API_BASE_URL = "https://SEU-BACKEND.up.railway.app";
+
+const LEVELS = [
+  { code: "A1", label: "Iniciante", questions: [
+    { q: "I ___ from Brazil.", opts: ["am","is","are","be"] },
+    { q: "There ___ two cats in the garden.", opts: ["is","are","am","be"] },
+    { q: "She usually ___ breakfast at 7 a.m.", opts: ["eat","eats","eating","to eat"] },
+    { q: "Look! It ___ raining outside.", opts: ["rain","rains","is","are"] },
+    { q: "Can you pass me ___ salt, please?", opts: ["a","an","the","some a"] },
+    { q: "What ___ your favorite color?", opts: ["is","are","do","does"] },
+  ]},
+  { code: "A2", label: "Básico", questions: [
+    { q: "Yesterday, we ___ to the beach.", opts: ["go","went","gone","goes"] },
+    { q: "I have lived here ___ 2019.", opts: ["for","since","ago","during"] },
+    { q: "He is taller ___ his brother.", opts: ["than","that","then","as"] },
+    { q: "If it rains tomorrow, we ___ stay home.", opts: ["will","would","are","did"] },
+    { q: "She ___ finished her homework yet.", opts: ["isn't","hasn't","doesn't","wasn't"] },
+    { q: "There isn't ___ milk left in the fridge.", opts: ["some","any","much of","no"] },
+  ]},
+  { code: "B1", label: "Intermediário", questions: [
+    { q: "By the time we arrived, the movie ___ already started.", opts: ["has","had","have","was"] },
+    { q: "I wish I ___ more time to travel.", opts: ["have","had","would have","has"] },
+    { q: "The report ___ by the manager before the meeting.", opts: ["was reviewed","reviewed","has reviewed","review"] },
+    { q: "She suggested ___ the meeting to next week.", opts: ["to postpone","postponing","postpone","postponed"] },
+    { q: "Despite ___ tired, he kept working.", opts: ["be","being","to be","been"] },
+    { q: "Neither the manager nor the employees ___ satisfied with the decision.", opts: ["was","were","is","has been"] },
+  ]},
+  { code: "B2", label: "Avançado", questions: [
+    { q: "Had I known about the traffic, I ___ earlier.", opts: ["would leave","would have left","had left","left"] },
+    { q: "The project, ___ deadline was extended, is almost finished.", opts: ["that","whose","which","who"] },
+    { q: "Not only ___ the report late, but it also contained errors.", opts: ["he submitted","did he submit","he did submit","submitted he"] },
+    { q: "She's used to ___ long hours.", opts: ["work","working","worked","have worked"] },
+    { q: "It's high time we ___ a decision.", opts: ["make","made","makes","are making"] },
+    { q: "The company's profits have ___ steadily over the past year.", opts: ["raised","risen","arisen","rose"] },
+  ]},
+  { code: "C1", label: "Fluente", questions: [
+    { q: "___ the economic downturn, the company managed to increase its revenue.", opts: ["Despite of","In spite","Notwithstanding","Although of"] },
+    { q: "Rarely ___ such a compelling argument presented in court.", opts: ["has been","has there been","there has been","it has been"] },
+    { q: "It is imperative that she ___ present at the hearing.", opts: ["is","be","was","being"] },
+    { q: "He spoke with such eloquence that the audience ___ captivated.", opts: ["were","was","had been","are"] },
+    { q: "The findings, far from ___ conclusive, raised further questions.", opts: ["be","being","been","to be"] },
+    { q: "No sooner ___ the announcement made than the stock price plummeted.", opts: ["had","was","did","has"] },
+  ]},
+];
+
+const letters = ["A","B","C","D"];
+const quizForm = document.getElementById("quiz");
+let qCounter = 0;
+
+LEVELS.forEach((level) => {
+  const section = document.createElement("div");
+  section.className = "level";
+  const title = document.createElement("div");
+  title.className = "level-title";
+  title.textContent = level.code;
+  section.appendChild(title);
+
+  level.questions.forEach((item, idx) => {
+    qCounter++;
+    const qName = `${level.code}-${idx}`;
+    const qDiv = document.createElement("div");
+    qDiv.className = "question";
+    const p = document.createElement("p");
+    p.textContent = `${qCounter}. ${item.q}`;
+    qDiv.appendChild(p);
+    const optsDiv = document.createElement("div");
+    optsDiv.className = "options";
+    item.opts.forEach((opt, oIdx) => {
+      const lbl = document.createElement("label");
+      lbl.className = "opt";
+      lbl.innerHTML = `<input type="radio" name="${qName}" value="${oIdx}"> ${letters[oIdx]}) ${opt}`;
+      optsDiv.appendChild(lbl);
+    });
+    qDiv.appendChild(optsDiv);
+    section.appendChild(qDiv);
+  });
+  quizForm.appendChild(section);
+});
+
+const totalQuestions = LEVELS.reduce((sum, l) => sum + l.questions.length, 0);
+const progressEl = document.getElementById("progress");
+const submitBtn = document.getElementById("submitBtn");
+
+quizForm.addEventListener("change", (e) => {
+  if (e.target.type === "radio") {
+    const name = e.target.name;
+    quizForm.querySelectorAll(`input[name="${name}"]`).forEach((inp) => {
+      inp.closest("label").classList.toggle("checked", inp.checked);
+    });
+    updateProgress();
+  }
+});
+
+function updateProgress() {
+  const answered = new Set();
+  LEVELS.forEach((level) =>
+    level.questions.forEach((item, idx) => {
+      const name = `${level.code}-${idx}`;
+      if (quizForm.querySelector(`input[name="${name}"]:checked`)) answered.add(name);
+    })
+  );
+  progressEl.textContent = `${answered.size} de ${totalQuestions} respondidas`;
+  submitBtn.disabled = answered.size < totalQuestions;
+}
+
+document.getElementById("startBtn").addEventListener("click", () => {
+  document.querySelector(".test-section").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("toQuizBtn").addEventListener("click", () => {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  if (!name || !email) return;
+  document.getElementById("test-form").style.display = "none";
+  document.getElementById("quiz-wrap").style.display = "block";
+  document.getElementById("submitBar").classList.remove("hidden");
+});
+
+submitBtn.addEventListener("click", async () => {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const answers = {};
+  LEVELS.forEach((level) =>
+    level.questions.forEach((item, idx) => {
+      const name2 = `${level.code}-${idx}`;
+      const checked = quizForm.querySelector(`input[name="${name2}"]:checked`);
+      if (checked) answers[name2] = Number(checked.value);
+    })
+  );
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Enviando...";
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/submit`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, answers }),
+    });
+    if (!res.ok) throw new Error("Falha no envio");
+
+    document.getElementById("quiz-wrap").style.display = "none";
+    document.getElementById("submitBar").classList.add("hidden");
+    document.getElementById("confirmation").style.display = "block";
+    document.getElementById("confirmation").scrollIntoView({ behavior: "smooth" });
+  } catch (err) {
+    alert("Não foi possível enviar suas respostas agora. Tente novamente em instantes.");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Enviar respostas";
+  }
+});
+</script>
+</body>
+</html>
