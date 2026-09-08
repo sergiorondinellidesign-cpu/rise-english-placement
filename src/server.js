@@ -35,7 +35,7 @@ app.post("/api/submit", async (req, res) => {
 
     res.json({ ok: true });
   } catch (err) {
-    console.error("[submit] erro:", err.message);
+    console.error("[submit] erro: " + err.message + " | code=" + err.code);
     res.status(500).json({ ok: false, error: "Erro ao salvar respostas." });
   }
 });
